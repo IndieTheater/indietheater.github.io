@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about IndieTheater, a platform dedicated to promoting indie animation creators and their unique stories.">
-  <meta name="keywords" content="indie animation, IndieTheater, animation creators, indie stories">
-  <title>IndieTheater - The Indie Animation Hub</title>
+  <meta name="description" content="IndieTheater: Your source for indie animation news, creators, and events. Discover unique stories and creative visions.">
+  <meta name="keywords" content="indie animation, IndieTheater, animation news, indie creators, animation events">
+  <title>IndieTheater - Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     * {
@@ -86,33 +86,28 @@
       padding: 2rem 1rem;
     }
 
-    .about-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+    .hero-section {
       background-color: #D1B17D;
       border-radius: 12px;
-      padding: 2rem;
+      padding: 3rem 2rem;
+      text-align: center;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
     }
 
-    .about-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .about-content h2 {
-      font-size: 1.8rem;
+    .hero-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
       color: #3E474C;
       margin-bottom: 1rem;
     }
 
-    .about-content p {
-      font-size: 1rem;
+    .hero-section p {
+      font-size: 1.1rem;
       color: #333;
       margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .fun-button {
@@ -129,7 +124,6 @@
       align-items: center;
       gap: 0.5rem;
       text-decoration: none;
-      width: fit-content;
     }
 
     .fun-button:hover {
@@ -137,11 +131,81 @@
       transform: scale(1.05);
     }
 
-    .about-image img {
+    .featured-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-card {
+      background-color: #D1B17D;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card img {
       width: 100%;
       height: auto;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      color: #3E474C;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .feature-card h3 a:hover {
+      color: #70AD95;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .subscribe-section {
+      text-align: center;
+      padding: 2rem;
+      background-color: #D1B17D;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .subscribe-section h2 {
+      font-size: 1.8rem;
+      color: #3E474C;
+      margin-bottom: 1rem;
+    }
+
+    .subscribe-section form {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .subscribe-section input[type="email"] {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      flex: 1;
     }
 
     footer {
@@ -154,11 +218,6 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      .about-section {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-      }
-
       header img {
         width: 100px;
       }
@@ -167,9 +226,21 @@
         font-size: 2rem;
       }
 
+      .hero-section {
+        padding: 2rem 1.5rem;
+      }
+
+      .subscribe-section form {
+        flex-direction: column;
+      }
+
       .fun-button {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
+      }
+
+      .feature-card {
+        padding: 1rem;
       }
     }
 
@@ -178,8 +249,12 @@
         padding: 1.5rem 0.5rem;
       }
 
-      .about-content h2 {
+      .hero-section h2 {
         font-size: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
       }
 
       nav ul {
@@ -192,14 +267,14 @@
 <body>
   <header>
     <img src="images/logo.jpg" alt="IndieTheater Logo" aria-label="IndieTheater Logo">
-    <h1>About IndieTheater</h1>
-    <p>Discover our mission to celebrate indie animation.</p>
+    <h1>Welcome to IndieTheater</h1>
+    <p>Celebrating the art of indie animation</p>
   </header>
 
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" aria-current="page">About</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="creators.html">Creators</a></li>
       <li><a href="events.html">Events</a></li>
       <li><a href="shows.html">Shows</a></li>
@@ -209,22 +284,58 @@
   </nav>
 
   <main>
-    <section class="about-section" aria-labelledby="about-heading">
-      <div class="about-content">
-        <h2 id="about-heading">Our Mission</h2>
-        <p>IndieTheater is a dedicated news outlet focused on bringing attention to creators within the indie animation community. We strive to highlight the incredible work of independent animators, showcasing their unique stories and creative visions to a broader audience.</p>
-        <a href="https://www.youtube.com/@IndieTheater" class="fun-button" target="_blank" rel="noopener noreferrer">
-          Visit our YouTube! <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-      <div class="about-image">
-        <img src="images/about-image.jpg" alt="Indie animation scene showcasing creative artwork">
-      </div>
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <h2 id="hero-heading">Discover Indie Animation</h2>
+      <p>IndieTheater is your go-to source for news, creators, and events in the indie animation community. Join us in celebrating unique stories and creative visions from talented independent animators.</p>
+      <a href="https://www.youtube.com/@IndieTheater" class="fun-button" target="_blank" rel="noopener noreferrer">
+        Watch on YouTube <i class="fab fa-youtube"></i>
+      </a>
+    </section>
+
+    <section class="featured-section" aria-labelledby="featured-heading">
+      <h2 id="featured-heading" class="sr-only">Featured Content</h2>
+      <article class="feature-card">
+        <img src="images/feature1.jpg" alt="Murder Drones Episode 8 promotional artwork">
+        <h3><a href="blog.html">Latest News: Murder Drones Ep. 8</a></h3>
+        <p>Check out the buzz around the latest episode of Murder Drones!</p>
+      </article>
+      <article class="feature-card">
+        <img src="images/feature2.jpg" alt="Indie creator showcase">
+        <h3><a href="creators.html">Meet Our Creators</a></h3>
+        <p>Discover the talented animators behind your favorite indie shows.</p>
+      </article>
+      <article class="feature-card">
+        <img src="images/feature3.jpg" alt="Upcoming indie animation event">
+        <h3><a href="events.html">Upcoming Events</a></h3>
+        <p>Join us for exciting indie animation events and screenings!</p>
+      </article>
+    </section>
+
+    <section class="subscribe-section" aria-labelledby="subscribe-heading">
+      <h2 id="subscribe-heading">Stay Updated</h2>
+      <p>Enter your email to receive the latest indie animation news.</p>
+      <form action="#" method="post" onsubmit="return validateEmail(this)">
+        <input type="email" name="email" placeholder="Type your email…" aria-label="Email address" required>
+        <button type="submit" class="fun-button">Subscribe <i class="fas fa-envelope"></i></button>
+      </form>
     </section>
   </main>
 
   <footer>
     <p>© 2025 IndieTheater. All rights reserved. | Contact: (720) 515-1146</p>
   </footer>
+
+  <script>
+    function validateEmail(form) {
+      const email = form.email.value;
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!regex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+      alert('Thank you for subscribing!'); // Replace with actual form submission logic
+      return false; // Prevent default form submission for demo
+    }
+  </script>
 </body>
 </html>
