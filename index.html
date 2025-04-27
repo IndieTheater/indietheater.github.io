@@ -3,85 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IndieTheater</title>
+  <meta name="description" content="IndieTheater: Your go-to source for indie animation news, shows, and artists.">
+  <title>IndieTheater - Indie Animation Hub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      color: #333333;
     }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
     header {
-      background-color: #316354; /* Brunswick Green */
-      padding: 20px;
+      background-color: #316354;
+      padding: 2rem 1rem;
       text-align: center;
       color: white;
     }
+
     header img {
-      width: 150px; /* Adjust the size of the logo */
+      width: 120px;
       height: auto;
-      margin-bottom: 10px;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
     }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
     h1 {
-      font-size: 3em;
-      margin: 0;
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
     }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
     section {
-      padding: 20px;
-      margin: 10px 0;
+      margin-bottom: 2rem;
+      background-color: #D1B17D;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .spotlight, .discover {
-      background-color: #D1B17D; /* Ecru */
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
+
     .spotlight h2, .discover h2 {
-      color: #3E474C; /* Outer Space */
+      color: #3E474C;
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
     }
+
     .fun-button {
-      background-color: #70AD95; /* Cambridge Blue */
+      background-color: #70AD95;
       border: none;
-      padding: 10px 20px;
+      padding: 0.75rem 1.5rem;
       color: white;
-      font-size: 1.2em;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
+
     .fun-button:hover {
-      background-color: #2F201D; /* Bistre */
+      background-color: #2F201D;
+      transform: scale(1.05);
     }
+
+    .fun-button i {
+      font-size: 1.1rem;
+    }
+
     footer {
-      text-align: center;
-      background-color: #316354; /* Brunswick Green */
+      background-color: #316354;
       color: white;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header img {
+        width: 100px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .fun-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1.5rem 0.5rem;
+      }
+
+      .spotlight h2, .discover h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="images/logo.jpg" alt="IndieTheater Logo">
+    <img src="images/logo.jpg" alt="IndieTheater Logo" aria-label="IndieTheater Logo">
     <h1>IndieTheater</h1>
     <p>Your go-to for indie animation news & more!</p>
   </header>
 
-  <section class="spotlight">
-    <h2>Indie Spotlight</h2>
-    <p>Check out the latest indie animated films that are making waves!</p>
-    <button class="fun-button">Discover More</button>
-  </section>
+  <main>
+    <section class="spotlight" aria-labelledby="spotlight-title">
+      <h2 id="spotlight-title">Indie Spotlight</h2>
+      <p>Check out the latest indie animated shows that are making waves!</p>
+      <button class="fun-button" aria-label="Discover more indie shows">
+        Discover More <i class="fas fa-arrow-right"></i>
+      </button>
+    </section>
 
-  <section class="discover">
-    <h2>Discover Something New</h2>
-    <p>Uncover hidden gems and explore new artists!</p>
-    <button class="fun-button">Explore Now</button>
-  </section>
+    <section class="discover" aria-labelledby="discover-title">
+      <h2 id="discover-title">Discover Something New</h2>
+      <p>Uncover hidden gems and explore new artists!</p>
+      <button class="fun-button" aria-label="Explore new indie artists">
+        Explore Now <i class="fas fa-star"></i>
+      </button>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 IndieTheater. All rights reserved.</p>
