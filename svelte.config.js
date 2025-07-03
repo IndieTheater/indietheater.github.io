@@ -1,19 +1,19 @@
-import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
-import path from 'path';
+import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const config = {
-  extensions: ['.svelte', '.md'],
-  preprocess: [mdsvex()],
+  extensions: ['.svelte', '.md', '.svx'], // include .md explicitly
+  preprocess: [
+    vitePreprocess(),
+    mdsvex({
+      extensions: ['.md', '.svx'],
+    })
+  ],
   kit: {
     adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: null
+      fallback: 'index.html', // SPA fallback for dynamic routes
     }),
-    paths: {
-      base: process.env.NODE_ENV === 'production' ? '/indietheater' : ''
-    }
   }
 };
 

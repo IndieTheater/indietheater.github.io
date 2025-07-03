@@ -1,0 +1,158 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@layer base {
+  select,
+  input,
+  textarea {
+    @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100;
+  }
+
+  button {
+    @apply text-white font-semibold px-4 py-3 rounded-lg transition inline-flex items-center gap-2 
+      hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: #70AD95; /* light green */
+  }
+
+  button:hover {
+    background-color: #2F201D; /* brown */
+  }
+
+  button:focus {
+    --tw-ring-color: #316354; /* dark green */
+  }
+
+  a {
+    @apply hover:underline transition;
+    color: #316354; /* dark green */
+  }
+
+  a:hover {
+    color: #70AD95; /* light green */
+  }
+
+  body {
+    @apply font-sans;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900 dark:text-gray-100;
+  }
+
+  p, ul, ol {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  blockquote {
+    @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic;
+    color: #555;
+  }
+
+  img {
+    @apply max-w-full h-auto rounded-lg shadow-md;
+  }
+}
+
+@layer components {
+  .navbar {
+    @apply border-b shadow-sm sticky top-0 z-50;
+    background-color: #2F201D; /* brown */
+  }
+
+  .navbar-inner {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between;
+  }
+
+  .navbar-logo {
+    @apply text-2xl font-extrabold tracking-tight;
+    color: #D1B17D; /* tan */
+  }
+
+  .navbar-links {
+    @apply hidden md:flex space-x-6;
+  }
+
+  .navbar-links a {
+    @apply transition;
+    color: #ffffff;
+  }
+
+  .navbar-links a:hover {
+    color: #D1B17D; /* tan */
+  }
+
+  .theme-toggle-btn {
+    @apply ml-4 px-3 py-2 text-sm rounded-md transition;
+    background-color: #D1B17D;
+    color: #2F201D;
+  }
+
+  .theme-toggle-btn:hover {
+    background-color: #2F201D;
+    color: #ffffff;
+  }
+
+  .blog-post {
+    @apply rounded-xl p-6 shadow-lg transition-transform;
+    background-color: #D1B17D;
+  }
+
+  .blog-post:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+
+  .blog-post h3 {
+    @apply text-xl mb-2;
+    color: #3E474C;
+  }
+
+  .blog-post h3 a {
+    color: #3E474C;
+    text-decoration: none;
+  }
+
+  .blog-post h3 a:hover {
+    color: #70AD95;
+  }
+
+  .blog-post time {
+    @apply text-sm;
+    color: #555;
+  }
+
+  .subscribe-section {
+    @apply text-center p-8 rounded-xl my-8 shadow-lg;
+    background-color: #D1B17D;
+  }
+
+  .subscribe-section h2 {
+    @apply text-2xl mb-4;
+    color: #3E474C;
+  }
+
+  .subscribe-section form {
+    @apply flex flex-col sm:flex-row justify-center gap-2 max-w-lg mx-auto;
+  }
+
+  .subscribe-section input[type="email"] {
+    @apply p-3 text-base border border-gray-300 rounded-lg flex-1;
+  }
+
+  .fun-button {
+    @apply font-semibold px-4 py-3 rounded-lg transition inline-flex items-center gap-2 
+      hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: #70AD95;
+    color: white;
+  }
+
+  .fun-button:hover {
+    background-color: #2F201D;
+  }
+
+  .fun-button:focus {
+    --tw-ring-color: #316354;
+  }
+}

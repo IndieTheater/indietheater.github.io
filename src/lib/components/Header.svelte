@@ -1,10 +1,48 @@
-<header class="p-4 bg-white dark:bg-gray-900 shadow">
-  <div class="container mx-auto flex justify-between items-center">
-    <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">IndieTheater</a>
-    <nav class="space-x-4">
-      <a href="/show" class="text-gray-700 dark:text-gray-200">Shows</a>
-      <a href="/creator" class="text-gray-700 dark:text-gray-200">Creators</a>
-      <a href="/news" class="text-gray-700 dark:text-gray-200">News</a>
-    </nav>
+<script lang="ts">
+  import { onMount } from 'svelte';
+
+  let isDark = false;
+
+  onMount(() => {
+    isDark = localStorage.theme === 'dark';
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    }
+  });
+
+  function toggleTheme() {
+    isDark = !isDark;
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    }
+  }
+  export { toggleTheme };
+</script>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="navbar-logo">IndieTheater</a>
+    <div class="navbar-links">
+      <a href="/">Home</a>
+      <a href="/show">Shows</a>
+      <a href="/creator">Creators</a>
+      <a href="/news">News</a>
+      <a href="/about">About</a>
+    </div>
+    <button 
+      class="theme-toggle-btn" 
+      aria-label="Toggle theme" 
+      on:click={toggleTheme}
+    >
+      {#if isDark}
+        ☀️
+      {:else}
+        🌙
+      {/if}
+    </button>
   </div>
-</header>
+</nav>
