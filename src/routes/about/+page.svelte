@@ -13,7 +13,7 @@
         to a broader audience.
       </p>
       <a
-        href="https://www.youtube.com/@IndieTheater"
+        href="https://www.youtube.com/@IndieTheaterOfficial"
         target="_blank"
         rel="noopener noreferrer"
         class="fun-button bg-[#70AD95] hover:bg-[#2F201D] text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center gap-2 transition duration-300"

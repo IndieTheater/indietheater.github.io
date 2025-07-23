@@ -31,15 +31,19 @@
 </script>
 
 <script lang="ts">
-  export let metadata: {
-    name: string;
-    location?: string;
-    knownFor?: string[];
-    thumbnail?: string;
+  export let data: {
+    metadata: {
+      name: string;
+      location?: string;
+      knownFor?: string[];
+      thumbnail?: string;
+    };
+    component: any;
   };
 
-  export let component: any;
+  const { metadata, component } = data;
 </script>
+
 
 <svelte:component this={component} />
 
