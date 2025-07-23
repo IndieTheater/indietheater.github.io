@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/" />
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
     <script>
-      // Handle redirect while preserving path
-      const redirectPath = window.location.pathname + window.location.search + window.location.hash;
-      window.location.replace("/?" + redirectPath);
+      const redirectTo = location.pathname + location.search + location.hash;
+      sessionStorage.redirect = redirectTo;
+      location.replace('/indietheater.github.io/');
     </script>
   </head>
   <body></body>
