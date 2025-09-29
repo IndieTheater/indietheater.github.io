@@ -10,13 +10,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
-        with: { node-version: '18' }
-      - run: npm ci
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          cd Build
+          npm ci
+
+      - name: Build Svelte app
+        run: |
+          cd Build
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./Build/build
           publish_branch: gh-pages
-    
