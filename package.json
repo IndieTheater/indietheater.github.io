@@ -40,6 +40,7 @@
 		"vitest-browser-svelte": "^0.1.0"
 	},
 	"dependencies": {
-		"gray-matter": "^4.0.3"
+		"gray-matter": "^4.0.3",
+		"lucide-svelte": "^0.544.0"
 	}
 }

@@ -25,6 +25,7 @@
       <time datetime="2024-08-22T15:45:32-06:00" class="text-sm text-gray-700">August 22, 2024</time>
     </article>
     <!-- More blog-posts go here -->
+    <!-- make dynamic soon -->
   </section>
 
   <section class="text-center mt-16 bg-[#D1B17D] rounded-xl p-8 shadow-lg">

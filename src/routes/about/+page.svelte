@@ -8,9 +8,7 @@
     <div class="flex flex-col justify-center">
       <h2 id="about-heading" class="text-3xl text-[#3E474C] font-bold mb-4">Our Mission</h2>
       <p class="text-base text-gray-800 mb-6">
-        IndieTheater is a dedicated news outlet focused on bringing attention to creators within the indie animation community.
-        We strive to highlight the incredible work of independent animators, showcasing their unique stories and creative visions
-        to a broader audience.
+        IndieTheater is a website that helps highlight creators and shows in indie animation.
       </p>
       <a
         href="https://www.youtube.com/@IndieTheaterOfficial"

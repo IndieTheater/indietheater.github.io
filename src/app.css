@@ -155,4 +155,117 @@
   .fun-button:focus {
     --tw-ring-color: #316354;
   }
+
+  /* New Hero Components */
+  .hero-button {
+    @apply px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center;
+  }
+
+  .hero-button.primary {
+    @apply bg-gradient-to-r from-[#316354] to-[#70AD95] text-white hover:from-[#2a5447] hover:to-[#5e8c79];
+  }
+
+  .hero-button.secondary {
+    @apply bg-gradient-to-r from-[#70AD95] to-[#316354] text-white hover:from-[#5e8c79] hover:to-[#2a5447];
+  }
+
+  /* Featured Cards */
+  .featured-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2;
+  }
+
+  .featured-link {
+    @apply text-[#316354] font-semibold hover:text-[#70AD95] transition-colors inline-flex items-center gap-2;
+  }
+
+  /* Stats Cards */
+  .stats-card {
+    @apply transform hover:scale-105 transition-all duration-300 p-6;
+  }
+
+  /* SpotlightCard Styles */
+  .spotlight-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden;
+  }
+
+  .spotlight-card-image {
+    @apply aspect-[4/3] overflow-hidden relative;
+  }
+
+  .spotlight-card-content {
+    @apply p-6;
+  }
+
+  .spotlight-card-title {
+    @apply text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-[#316354] transition-colors;
+  }
+
+  .spotlight-card-meta {
+    @apply text-sm text-gray-600 dark:text-gray-300 mb-3;
+  }
+
+  .spotlight-card-description {
+    @apply text-gray-700 dark:text-gray-300 line-clamp-2 mb-4;
+  }
+
+  .spotlight-card-link {
+    @apply inline-flex items-center text-[#316354] font-semibold hover:text-[#70AD95] transition-colors gap-2;
+  }
+
+  /* Navigation Styles */
+  .enhanced-navbar {
+    @apply bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50;
+  }
+
+  .navbar-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between;
+  }
+
+  .navbar-logo-enhanced {
+    @apply text-2xl font-extrabold text-[#316354] hover:text-[#70AD95] transition-colors;
+  }
+
+  .navbar-links-desktop {
+    @apply hidden md:flex space-x-8;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-[#316354] dark:hover:text-[#70AD95] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 font-medium;
+  }
+
+  .nav-link.active {
+    @apply bg-[#316354] text-white hover:bg-[#2a5447];
+  }
+
+  .nav-link.active .nav-icon {
+    @apply scale-110;
+  }
+
+  .nav-icon {
+    @apply text-lg transition-transform;
+  }
+
+  .navbar-controls {
+    @apply flex items-center gap-3;
+  }
+
+  .theme-toggle-enhanced {
+    @apply p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200;
+  }
+
+  .mobile-menu-button {
+    @apply p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200;
+  }
+
+  .mobile-menu {
+    @apply md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 px-4 py-4 space-y-2;
+  }
+
+  .mobile-nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:text-[#316354] dark:hover:text-[#70AD95] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 font-medium;
+  }
+
+  .mobile-nav-link.active {
+    @apply bg-[#316354] text-white hover:bg-[#2a5447];
+  }
 }
