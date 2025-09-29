@@ -1,0 +1,30 @@
+<script></script>
+
+<main class="mx-auto max-w-7xl flex-1 p-8">
+	<section
+		aria-labelledby="about-heading"
+		class="mb-8 grid grid-cols-1 gap-8 rounded-3xl bg-[#D1B17D] p-8 shadow-lg md:grid-cols-2"
+	>
+		<div class="flex flex-col justify-center">
+			<h2 id="about-heading" class="mb-4 text-3xl font-bold text-[#3E474C]">Our Mission</h2>
+			<p class="mb-6 text-base text-gray-800">
+				IndieTheater is a website that helps highlight creators and shows in indie animation.
+			</p>
+			<a
+				href="https://www.youtube.com/@IndieTheaterOfficial"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="fun-button inline-flex items-center gap-2 rounded-lg bg-[#70AD95] px-6 py-3 font-semibold text-white transition duration-300 hover:bg-[#2F201D]"
+			>
+				Visit our YouTube! <i class="fab fa-youtube"></i>
+			</a>
+		</div>
+		<div>
+			<img
+				src="/assets/about-image.jpg"
+				alt="Indie animation scene showcasing creative artwork"
+				class="h-auto max-w-full rounded-lg shadow-md"
+			/>
+		</div>
+	</section>
+</main>
