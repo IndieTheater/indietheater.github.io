@@ -1,46 +1,9 @@
-<script context="module" lang="ts">
-  import type { Load } from '@sveltejs/kit';
-  import { error } from '@sveltejs/kit';
-
-  interface ShowMetadata {
-    title: string;
-    creator: string;
-    releaseDate: string;
-    genre: string[];
-    thumbnail: string;
-  }
-
-  interface ShowModule {
-    metadata: ShowMetadata;
-    default: any; // Svelte component
-  }
-
-  const modules = import.meta.glob<ShowModule>('../../content/shows/*.md');
-
-  export const load: Load = async ({ params }) => {
-    const slug = params.slug;
-    const matchKey = Object.keys(modules).find((path) => path.endsWith(`${slug}.md`));
-    if (!matchKey) throw error(404, 'Show not found');
-
-    const showModule = await modules[matchKey]!();
-
-    return {
-      metadata: showModule.metadata,
-      component: showModule.default
-    };
-  };
-</script>
-
 <script lang="ts">
-  export let metadata: {
-    title?: string;
-    creator?: string;
-    releaseDate?: string;
-    genre?: string[];
-    thumbnail?: string;
-  };
+  import type { PageData } from './$types';
 
-  export let component: any;
+  export let data: PageData;
+  
+  const { metadata, component } = data;
 </script>
 
 <svelte:component this={component} />
