@@ -1,11 +1,25 @@
 <script>
-	import { Film, Users } from 'lucide-svelte';
-	// svelte-ignore export_let_unused
-		export let toggleTheme;
+	import { Film, Users, Newspaper, TrendingUp } from 'lucide-svelte';
+	import SpotlightCard from '$lib/components/SpotlightCard.svelte';
+
+	export let data;
+
+	function formatDate(dateString) {
+		const date = new Date(dateString);
+		return date.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+	}
 </script>
 
 <svelte:head>
-	<title>IndieTheater</title>
+	<title>IndieTheater - Discover Indie Animation</title>
+	<meta
+		name="description"
+		content="Discover your next favorite indie animation show and learn about the creators behind them"
+	/>
 </svelte:head>
 
 <!-- Hero Section -->
@@ -47,11 +61,10 @@
 		<div class="mb-12 text-center">
 			<h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">Featured Shows</h2>
 			<p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-				Some of the featured shows on IndieTheater.
+				Some of the featured shows on IndieTheater
 			</p>
 		</div>
 
-		<!-- for now hardcode, later make dynamic -->
 		<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 			<!-- Murder Drones -->
 			<div class="featured-card feature-hover-group">
@@ -126,3 +139,63 @@
 		</div>
 	</div>
 </section>
+
+<!-- Latest News Section -->
+{#if data.latestPosts && data.latestPosts.length > 0}
+	<section class="bg-gray-50 py-16 dark:bg-gray-800">
+		<div class="container mx-auto px-6">
+			<div class="mb-12 flex items-center justify-between">
+				<div>
+					<h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">Latest News</h2>
+					<p class="text-lg text-gray-600 dark:text-gray-300">
+						Stay updated with indie animation news
+					</p>
+				</div>
+				<a
+					href="/news"
+					class="hidden items-center gap-2 text-[#316354] transition-colors hover:text-[#70AD95] md:flex"
+				>
+					View All
+					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M13 7l5 5m0 0l-5 5m5-5H6"
+						></path>
+					</svg>
+				</a>
+			</div>
+
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+				{#each data.latestPosts as post}
+					<SpotlightCard
+						title={post.title}
+						slug={'/news/' + post.slug}
+						thumbnail={post.thumbnail || '/assets/posts/default.jpg'}
+						meta={formatDate(post.date)}
+						description={post.excerpt || ''}
+						category="News"
+					/>
+				{/each}
+			</div>
+
+			<div class="mt-8 text-center md:hidden">
+				<a
+					href="/news"
+					class="inline-flex items-center gap-2 text-[#316354] transition-colors hover:text-[#70AD95]"
+				>
+					View All News
+					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M13 7l5 5m0 0l-5 5m5-5H6"
+						></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+{/if}

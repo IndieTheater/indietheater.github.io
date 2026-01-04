@@ -1,13 +1,22 @@
-Bu<script lang="ts">
+<script lang="ts">
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
 	const { metadata, component } = data;
+
+	function formatDate(dateString) {
+		const date = new Date(dateString);
+		return date.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+	}
 </script>
 
 <svelte:head>
-	<title>{metadata?.title || 'Show'} - IndieTheater</title>
+	<title>{metadata?.title || 'Post'} - IndieTheater</title>
 </svelte:head>
 
 <article class="mx-auto max-w-4xl">
@@ -22,11 +31,25 @@ Bu<script lang="ts">
 		{/if}
 
 		<h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
-			{metadata?.title || 'Untitled Show'}
+			{metadata?.title || 'Untitled'}
 		</h1>
 
 		<div class="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-400">
-			{#if metadata?.creator}
+			{#if metadata?.date}
+				<time datetime={metadata.date} class="flex items-center gap-2">
+					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+						></path>
+					</svg>
+					{formatDate(metadata.date)}
+				</time>
+			{/if}
+
+			{#if metadata?.author}
 				<span class="flex items-center gap-2">
 					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path
@@ -36,57 +59,18 @@ Bu<script lang="ts">
 							d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
 						></path>
 					</svg>
-					{#if metadata?.creatorSlug}
-						<a
-							href="/creator/{metadata.creatorSlug}"
-							class="hover:text-[#316354] dark:hover:text-[#70AD95]"
-						>
-							{metadata.creator}
-						</a>
-					{:else}
-						{metadata.creator}
-					{/if}
-				</span>
-			{/if}
-
-			{#if metadata?.releaseDate}
-				<span class="flex items-center gap-2">
-					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-						></path>
-					</svg>
-					{metadata.releaseDate}
-				</span>
-			{/if}
-
-			{#if metadata?.status}
-				<span
-					class="rounded-full px-3 py-1 text-sm font-medium"
-					class:bg-green-100={metadata.status === 'Ongoing'}
-					class:text-green-800={metadata.status === 'Ongoing'}
-					class:dark:bg-green-900={metadata.status === 'Ongoing'}
-					class:dark:text-green-200={metadata.status === 'Ongoing'}
-					class:bg-blue-100={metadata.status === 'Complete'}
-					class:text-blue-800={metadata.status === 'Complete'}
-					class:dark:bg-blue-900={metadata.status === 'Complete'}
-					class:dark:text-blue-200={metadata.status === 'Complete'}
-				>
-					{metadata.status}
+					{metadata.author}
 				</span>
 			{/if}
 		</div>
 
-		{#if metadata?.genre && metadata.genre.length > 0}
+		{#if metadata?.tags && metadata.tags.length > 0}
 			<div class="mt-4 flex flex-wrap gap-2">
-				{#each metadata.genre as genre}
+				{#each metadata.tags as tag}
 					<span
 						class="rounded-full bg-[#316354] px-3 py-1 text-sm font-medium text-white dark:bg-[#70AD95]"
 					>
-						{genre}
+						{tag}
 					</span>
 				{/each}
 			</div>
@@ -100,10 +84,10 @@ Bu<script lang="ts">
 		<svelte:component this={component} />
 	</div>
 
-	<!-- Back to Shows -->
+	<!-- Back to News -->
 	<div class="mt-12 border-t border-gray-200 pt-8 dark:border-gray-700">
 		<a
-			href="/show"
+			href="/news"
 			class="inline-flex items-center gap-2 text-[#316354] transition-colors hover:text-[#70AD95] dark:text-[#70AD95] dark:hover:text-[#316354]"
 		>
 			<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +98,7 @@ Bu<script lang="ts">
 					d="M10 19l-7-7m0 0l7-7m-7 7h18"
 				></path>
 			</svg>
-			Back to Shows
+			Back to News
 		</a>
 	</div>
 </article>
